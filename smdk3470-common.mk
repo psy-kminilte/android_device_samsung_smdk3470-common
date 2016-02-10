@@ -35,6 +35,7 @@ PRODUCT_PACKAGES += \
 
 # needed by stock audio-hal
 PRODUCT_PACKAGES += \
+    audio.vendor.universal3470 \
     default_gain.conf \
     tinyucm.conf
 
@@ -52,6 +53,10 @@ PRODUCT_COPY_FILES += \
 # Samsung
 PRODUCT_PACKAGES += \
     SamsungServiceMode
+
+# Camera
+PRODUCT_PACKAGES += \
+    Snap
 
 # Wifi
 PRODUCT_PACKAGES += \
