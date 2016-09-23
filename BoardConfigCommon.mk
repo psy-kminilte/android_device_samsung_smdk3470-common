@@ -54,6 +54,9 @@ TARGET_SOC := exynos3470
 
 # Audio
 BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER := true
+USE_CUSTOM_AUDIO_POLICY := 1
+USE_XML_AUDIO_POLICY_CONF := 1
+
 # Use stock HAL
 TARGET_EXYNOS3_AUDIO_FROM_SOURCE := false
 # Lollipop Audio HAL is incompatible with Android M (see http://review.cyanogenmod.org/#/c/121831/)
@@ -75,6 +78,7 @@ BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 BOARD_PROVIDES_LIBRIL := true
 BOARD_MOBILEDATA_INTERFACE_NAME := "rmnet0"
 BOARD_MODEM_TYPE := ss222
+BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_11
 
 # Radio
 BOARD_RIL_CLASS := ../../../device/samsung/smdk3470-common/ril
