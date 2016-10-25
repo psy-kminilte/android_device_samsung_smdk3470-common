@@ -15,10 +15,10 @@ Change-Id: I618830e58eb40e1cd517f9789b286960cef0da9a
  1 file changed, 4 insertions(+)
 
 diff --git a/ril/libril/ril.cpp b/ril/libril/ril.cpp
-index e1d30ea..fe92ce3 100755
+index c910a1b..2e25307 100755
 --- a/ril/libril/ril.cpp
 +++ b/ril/libril/ril.cpp
-@@ -3308,6 +3308,8 @@ static int responseCellInfoListV6(Parcel &p, void *response, size_t responselen)
+@@ -3478,6 +3478,8 @@ static int responseCellInfoListV6(Parcel &p, void *response, size_t responselen)
                  p.writeInt32(p_cur->CellInfo.gsm.cellIdentityGsm.mnc);
                  p.writeInt32(p_cur->CellInfo.gsm.cellIdentityGsm.lac);
                  p.writeInt32(p_cur->CellInfo.gsm.cellIdentityGsm.cid);
@@ -27,7 +27,7 @@ index e1d30ea..fe92ce3 100755
                  p.writeInt32(p_cur->CellInfo.gsm.signalStrengthGsm.signalStrength);
                  p.writeInt32(p_cur->CellInfo.gsm.signalStrengthGsm.bitErrorRate);
                  break;
-@@ -3318,6 +3320,7 @@ static int responseCellInfoListV6(Parcel &p, void *response, size_t responselen)
+@@ -3498,6 +3500,7 @@ static int responseCellInfoListV6(Parcel &p, void *response, size_t responselen)
                  p.writeInt32(p_cur->CellInfo.wcdma.cellIdentityWcdma.lac);
                  p.writeInt32(p_cur->CellInfo.wcdma.cellIdentityWcdma.cid);
                  p.writeInt32(p_cur->CellInfo.wcdma.cellIdentityWcdma.psc);
@@ -35,11 +35,14 @@ index e1d30ea..fe92ce3 100755
                  p.writeInt32(p_cur->CellInfo.wcdma.signalStrengthWcdma.signalStrength);
                  p.writeInt32(p_cur->CellInfo.wcdma.signalStrengthWcdma.bitErrorRate);
                  break;
-@@ -3342,6 +3345,7 @@ static int responseCellInfoListV6(Parcel &p, void *response, size_t responselen)
+@@ -3543,6 +3546,7 @@ static int responseCellInfoListV6(Parcel &p, void *response, size_t responselen)
                  p.writeInt32(p_cur->CellInfo.lte.cellIdentityLte.ci);
                  p.writeInt32(p_cur->CellInfo.lte.cellIdentityLte.pci);
                  p.writeInt32(p_cur->CellInfo.lte.cellIdentityLte.tac);
 +                p.writeInt32(INT_MAX); /* skip earfcn */
  
-                 p.writeInt32(p_cur->CellInfo.lte.signalStrengthLte.signalStrength);
-                 p.writeInt32(p_cur->CellInfo.lte.signalStrengthLte.rsrp);
+                 appendPrintBuf("%s lteSS: ss=%d,rsrp=%d,rsrq=%d,rssnr=%d,cqi=%d,ta=%d", printBuf,
+                     p_cur->CellInfo.lte.signalStrengthLte.signalStrength,
+-- 
+2.7.4
+
