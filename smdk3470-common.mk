@@ -46,7 +46,6 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
@@ -57,6 +56,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    camera.universal3470 \
+    camera.vendor.universal3470 \
     Snap
 
 # Wifi
@@ -116,6 +117,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.render_dirty_regions=false \
     ro.opengles.version=131072 \
     ro.zygote.disable_gl_preload=true
+
+# Camera HAL1 compatibility
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
 
 # USB Accesory
 PRODUCT_PACKAGES += \
