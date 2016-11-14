@@ -1,6 +1,6 @@
-From 337e12bf2dbdc3fb5fccbc3072ab97de896d0c6f Mon Sep 17 00:00:00 2001
-From: psyafter <psyafter@gmail.com>
-Date: Mon, 14 Nov 2016 15:13:42 +0200
+From bcab0dbe2cd168664c1151c014d95df4d732b3a7 Mon Sep 17 00:00:00 2001
+From: Tobias Gunkel <hennymcc@yahoo.de>
+Date: Mon, 10 Oct 2016 21:11:00 +0200
 Subject: [PATCH] telephony: allow broadcasts from Samsung RIL
 
 RILD triggers message broadcasts using the UNSOL_AM command. These
