@@ -78,9 +78,15 @@ USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/smdk3470-common/egl/egl.cfg
 
 # Camera
+TARGET_USE_COMPAT_GRALLOC_ALIGN := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
+
+PRODUCT_PACKAGES += \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
+
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
