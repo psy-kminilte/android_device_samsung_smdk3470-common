@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 MYABSPATH=$(readlink -f "$0")
 PATCHBASE=$(dirname "$MYABSPATH")
@@ -25,9 +25,11 @@ for i in $(find "$PATCHBASE"/* -type d); do
         echo applying $PATCHNAME to $PATCHTARGET
         cd "$CMBASE/$PATCHTARGET" || exit 1
 
-        suffix=".patch"
-        if [ $PATCHNAME = "bootable_recovery" -a $TWRP = true ]; then suffix=".twrp.patch"; fi
-        if [ $PATCHNAME = "bootable_recovery" -a $TWRP = false ]; then suffix=".cm.patch"; fi
+    suffix=".patch"
+    if [ $PATCHNAME = "bootable_recovery" -a $TWRP = true ]; then suffix=".twrp.patch"; fi
+    if [ $PATCHNAME = "bootable_recovery" -a $TWRP = false ]; then suffix=".cm.patch"; fi
+
+    if compgen -G "$PATCHBASE/$PATCHNAME/*${suffix}" > /dev/null; then
         git am --ignore-whitespace -3 "$PATCHBASE/$PATCHNAME"/*${suffix} || exit 1
     fi
 done
