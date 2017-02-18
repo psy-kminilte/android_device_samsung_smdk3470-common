@@ -1,4 +1,4 @@
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -39,7 +39,8 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/smdk3470-common/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 
 # Use dlmalloc instead of jemalloc for mallocs
 #MALLOC_SVELTE := true
@@ -92,6 +93,9 @@ PRODUCT_PACKAGES += \
 BOARD_PROVIDES_LIBRIL := true
 BOARD_MOBILEDATA_INTERFACE_NAME := "rmnet0"
 BOARD_MODEM_TYPE := ss222
+
+# OpenMAX Video
+TARGET_OMX_LEGACY_RESCALING := true
 
 # Radio
 BOARD_RIL_CLASS := ../../../device/samsung/smdk3470-common/ril
